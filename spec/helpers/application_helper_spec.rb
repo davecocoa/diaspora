@@ -54,18 +54,18 @@ describe ApplicationHelper do
     end
   end
 
-  describe "#jquery_include_tag" do
+  describe "#jquery_custom_include_tag" do
     describe "with google cdn" do
       before do
         AppConfig.privacy.jquery_cdn = true
       end
 
       it 'inclues jquery.js from google cdn' do
-        jquery_include_tag.should match(/googleapis\.com/)
+        jquery_custom_include_tag.should match(/googleapis\.com/)
       end
 
       it 'falls back to asset pipeline on cdn failure' do
-        jquery_include_tag.should match(/document\.write/)
+        jquery_custom_include_tag.should match(/document\.write/)
       end
     end
 
@@ -75,17 +75,17 @@ describe ApplicationHelper do
       end
 
       it 'includes jquery.js from asset pipeline' do
-        jquery_include_tag.should match(/jquery\.js/)
-        jquery_include_tag.should_not match(/googleapis\.com/)
+        jquery_custom_include_tag.should match(/jquery\.js/)
+        jquery_custom_include_tag.should_not match(/googleapis\.com/)
       end
     end
 
     it 'inclues jquery_ujs.js' do
-      jquery_include_tag.should match(/jquery_ujs\.js/)
+      jquery_custom_include_tag.should match(/jquery_ujs\.js/)
     end
 
     it "disables ajax caching" do
-      jquery_include_tag.should match(/jQuery\.ajaxSetup/)
+      jquery_custom_include_tag.should match(/jQuery\.ajaxSetup/)
     end
   end
 

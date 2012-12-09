@@ -125,6 +125,9 @@ group :assets do
 end
 
 gem 'jquery-rails', '2.1.3'
+gem 'jquery-rails-cdn', '0.3.0'
+gem 'jquery-ui-rails', :git => 'https://github.com/techbang/jquery-ui-rails.git', :ref => "6ef98caff5"
+gem 'jquery-ui-rails-cdn', '0.1.1'
 
 # web
 
